@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nicea</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.0/dist/chart.min.js"></script>
+</head>
+<body>
+<canvas id = "myChart" width="900" height="400"></canvas>
+<script>
+var ctx = document.getElementById('myChart').getContext("2d");
+var myChart = new Chart(ctx,{
+    type: "line",
+    data: {
+        labels : {{y | safe}},
+        datasets: [{
+            label:'Covid weekly death rates',
+            data: {{x | safe}},
+            fill: false,
+            borderColor: "blue"
+            
+
+        }]
+    },
+    options: {
+        responsive:false
+    }
+});
+</script>
+</body>
+</html>
